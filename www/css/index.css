@@ -90,10 +90,11 @@ h1 {
     margin: 10px 0 10px 0
 }
 
-#articles img {
+img {
     width: 100%;
 }
 
+<<<<<<< HEAD
 #hamburger, #hamburger-content {
     display: inline;
 }
@@ -167,42 +168,11 @@ h1 {
 #hamburger-sidebar-body li:nth-child(2):before {
     background-image: url(../img/icons/add.svg);
 }
+=======
+>>>>>>> 39d2d8b126b462fbc8222cc9c58763e913f84382
 
-#hamburger-sidebar-body li:last-child:before {
-    background-image: url(../img/icons/qna.svg);
-}
 
-#hamburger-sidebar-body .button {
-    margin-top: 16px;
-    text-align: center;
-    float: none;
-    display: block;
-    height: auto;
-    line-height: inherit;
-    padding: 10px;
-}
-
-@media screen and (max-width: 1024px) {
-    h1 {
-        font-size: 42px;
-        line-height: 56px;
-    }
-
-    #hamburger-content {
-        display: none;
-    }
-
-    #hamburger-button, #hamburger-sidebar,
-    .hamburger-activated #hamburger-overlay {
-        display: block;
-    }
-
-    .hamburger-activated #hamburger-sidebar {
-        transform: translateX(0);
-    }
-}
-
-.details {
+.details, #photoDiv {
     display: none;
 }
 

@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
+let app = {
     initialize: function () {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
@@ -68,8 +68,8 @@ function cameraTakePicture() {
     });
 
     function onSuccess(imageData) {
-        let image = document.getElementById('myImage');
-        image.src = "data:image/jpeg;base64," + imageData;
+        document.getElementById('photoDiv').style.display = 'inline-block';
+        document.getElementById('photo').src = "data:image/jpeg;base64," + imageData;
     }
 
     function onFail(message) {
@@ -103,6 +103,19 @@ function addEvent(lenght) {
     }
 }
 
+document.getElementById('add').onclick = () => addArticleJSON();
+
+function addArticleJSON() {
+    let articles = JSON.parse(localStorage.getItem('articles'));
+    articles.push({
+        title: document.getElementById('title').value,
+        description: document.getElementById('description').value,
+        date: document.getElementById('date').value,
+        img: document.getElementById('photo').value
+    });
+    localStorage.setItem('articles', JSON.stringify(articles));
+}
+
 var content = document.querySelector('#hamburger-content');
 var sidebarBody = document.querySelector('#hamburger-sidebar-body');
 var button = document.querySelector('#hamburger-button');
@@ -111,22 +124,21 @@ var activatedClass = 'hamburger-activated';
 
 sidebarBody.innerHTML = content.innerHTML;
 
-button.addEventListener('click', function(e) {
-	e.preventDefault();
+button.addEventListener('click', function (e) {
+    e.preventDefault();
 
-	this.parentNode.classList.add(activatedClass);
+    this.parentNode.classList.add(activatedClass);
 });
 
-button.addEventListener('keydown', function(e) {
-	if (this.parentNode.classList.contains(activatedClass))
-	{
-		if (e.repeat === false && e.which === 27)
-			this.parentNode.classList.remove(activatedClass);
-	}
+button.addEventListener('keydown', function (e) {
+    if (this.parentNode.classList.contains(activatedClass)) {
+        if (e.repeat === false && e.which === 27)
+            this.parentNode.classList.remove(activatedClass);
+    }
 });
 
-overlay.addEventListener('click', function(e) {
-	e.preventDefault();
+overlay.addEventListener('click', function (e) {
+    e.preventDefault();
 
-	this.parentNode.classList.remove(activatedClass);
+    this.parentNode.classList.remove(activatedClass);
 });
