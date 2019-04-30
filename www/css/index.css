@@ -116,6 +116,7 @@ h1 {
     width: 100%;
 }
 
+<<<<<<< HEAD
 #hamburger, #hamburger-content {
   display: inline;
 }
@@ -217,4 +218,7 @@ h1 {
   .hamburger-activated #hamburger-sidebar {
       transform: translateX(0);
   }
+}
+.details {
+    display: none;
 }
