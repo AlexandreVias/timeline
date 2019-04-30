@@ -21,26 +21,14 @@ body {
 
 /* Portrait layout (default) */
 .app {
-    background: url(../img/logo.png) no-repeat center top; /* 170px x 200px */
     position: absolute; /* position in the center of the screen */
     left: 50%;
-    top: 50%;
     height: 50px; /* text area height */
     width: 225px; /* text area width */
     text-align: center;
     padding: 180px 0px 0px 0px; /* image height is 200px (bottom 20px are overlapped with text) */
     margin: -115px 0px 0px -112px; /* offset vertical: half of image height and text area height */
     /* offset horizontal: half of text area width */
-}
-
-/* Landscape layout (with min-width) */
-@media screen and (min-aspect-ratio: 1/1) and (min-width: 400px) {
-    .app {
-        background-position: left center;
-        padding: 75px 0px 75px 170px; /* padding-top + padding-bottom + text area = image height */
-        margin: -90px 0px 0px -198px; /* offset vertical: half of image height */
-        /* offset horizontal: half of image width and text area width */
-    }
 }
 
 h1 {
@@ -59,16 +47,6 @@ h1 {
     font-size: 12px;
     margin: 0px 30px;
     padding: 2px 0px;
-}
-
-.event.listening {
-    background-color: #333333;
-    display: block;
-}
-
-.event.received {
-    background-color: #4B946A;
-    display: none;
 }
 
 @keyframes fade {
@@ -121,16 +99,16 @@ h1 {
 }
 
 #hamburger-button {
-    display: none;
-    cursor: pointer;
-    background: none;
-    border: none;
-    font-size: 26px;
-    vertical-align: top;
-    padding: 0;
-    line-height: 47px;
-    float: left;
-    margin-left: 32px;
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 26px;
+  vertical-align: top;
+  padding: 0;
+  line-height: 47px;
+  float: right;
+  margin-right: 24px;
 }
 
 #hamburger-overlay {
@@ -183,7 +161,7 @@ h1 {
 }
 
 #hamburger-sidebar-body li:first-child:before {
-    background-image: url(../img/icons/home.svg);
+    background-image: url(../img/icons/discover.svg);
 }
 
 #hamburger-sidebar-body li:nth-child(2):before {
@@ -226,4 +204,50 @@ h1 {
 
 .details {
     display: none;
+}
+
+nav {
+  display: inline-block;
+  line-height: 48px;
+  vertical-align: top;
+}
+
+li {
+  margin-left: 32px;
+}
+li a, .button {
+  text-decoration: none;
+  color: #333;
+}
+
+.button {
+  text-transform: uppercase;
+  float: right;
+  margin-top: -16px;
+  line-height: 84px;
+  height: 84px;
+  text-decoration: none;
+  padding: 0 16px;
+}
+.button-sign-up {
+  background-color: #EEE;
+}
+
+header {
+  text-transform: uppercase;
+  background-color: #FFF;
+  height: 46px;
+  font-size: 15px;
+  box-shadow: 0 1px 16px rgba(0, 0, 0, .4);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+.grid-item {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
 }
