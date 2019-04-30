@@ -10,18 +10,36 @@
     <title>Hello World</title>
 </head>
 <body>
-<div class="app">
-    <h1>Apache Cordova</h1>
-    <div id="deviceready" class="blink">
-        <p class="event listening">Connecting to Device</p>
-        <p class="event received">Device is Ready</p>
+  <header>
+    <div id="hamburger">
+      <div id="hamburger-content">
+        <nav id="test">
+          <ul>
+            <li><a href="#">Accueil</a></li>
+            <li><a href="#">Ajout Article</a></li>
+            <li><a href="#">À propos</a></li>
+          </ul>
+        </nav>
+      </div>
+      <button id="hamburger-button">&#9776;</button>
+      <div id="hamburger-sidebar">
+        <div id="hamburger-sidebar-header"></div>
+        <div id="hamburger-sidebar-body"></div>
+      </div>
+      <div id="hamburger-overlay"></div>
     </div>
-    <div id="articles">
-
-    </div>
-    <button id="cameraTakePicture">TAKE PICTURE</button>
-    <img id="myImage" alt="Photo">
-</div>
+  </header>
+  <div class="app">
+      <h1>Apache Cordova</h1>
+      <div id="deviceready" class="blink">
+          <p class="event listening">Connecting to Device</p>
+          <p class="event received">Device is Ready</p>
+      </div>
+      <div id="articles">
+      </div>
+      <button id="cameraTakePicture">TAKE PICTURE</button>
+      <img id="myImage" alt="Photo">
+  </div>
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 </body>
