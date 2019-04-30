@@ -28,19 +28,19 @@ var app = {
             {
                 title: 'Trop belle photo',
                 description: 'Une petite description.',
-                date: '2012-04-23T18:25:43.511Z',
+                date: '2013-10-21',
                 img: 'img/pexels-photo.jpg'
             },
             {
                 title: 'Je sais pas quoi mettre comme titre',
                 description: 'Une autre description.',
-                date: '2013-10-21T13:28:06.419Z',
+                date: '2012-04-23',
                 img: 'img/beauty-bloom-blue-67636.jpg'
             },
             {
                 title: 'Un titre',
                 description: 'Blasphème.',
-                date: '2016-08-213T13:28:06.419Z',
+                date: '2016-08-21',
                 img: 'img/Notre_Dame.jpg'
             }
         ]));
@@ -85,8 +85,10 @@ function loadArticles() {
         html += `<div><h4>${art.title}</h4></div>`;
         html += `<div><img src="${art.img}" class="imgArticle" alt="Image of article"></div>`;
         html += `<span class="toggle">></span>`;
-        html += `<div class="details"><p>${art.description}</p></div>`;
-        html += `</div>`;
+        html += `<div class="details">`;
+        html += `<p>Description: ${art.description}</p>`;
+        html += `<p>Date: ${art.date}</p>`;
+        html += `</div></div>`;
         document.getElementById('articles').innerHTML += html;
     }
     addEvent(articles.length);
@@ -94,8 +96,7 @@ function loadArticles() {
 
 function addEvent(lenght) {
     for (let i = 0; i < lenght; i++) {
-        let e = document.getElementsByClassName('toggle')[i];
-        e.onclick = () => {
+        document.getElementsByClassName('toggle')[i].onclick = () => {
             let detail = document.getElementsByClassName('details')[i];
             detail.style.display !== 'block' ? detail.style.display = 'block' : detail.style.display = 'none'
         }
