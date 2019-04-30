@@ -28,23 +28,29 @@ var app = {
             {
                 title: 'Trop belle photo',
                 description: 'Une petite description.',
-                date: 'Today',
+                date: '2012-04-23T18:25:43.511Z',
                 img: 'img/pexels-photo.jpg'
             },
             {
                 title: 'Je sais pas quoi mettre comme titre',
                 description: 'Une autre description.',
-                date: 'Yesterday',
+                date: '2013-10-21T13:28:06.419Z',
                 img: 'img/beauty-bloom-blue-67636.jpg'
+            },
+            {
+                title: 'Un titre',
+                description: 'Blasphème.',
+                date: '2016-08-213T13:28:06.419Z',
+                img: 'img/Notre_Dame.jpg'
             }
         ]));
         loadArticles();
     },
 
     receivedEvent: function (id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+        let parentElement = document.getElementById(id);
+        let listeningElement = parentElement.querySelector('.listening');
+        let receivedElement = parentElement.querySelector('.received');
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
@@ -62,7 +68,7 @@ function cameraTakePicture() {
     });
 
     function onSuccess(imageData) {
-        var image = document.getElementById('myImage');
+        let image = document.getElementById('myImage');
         image.src = "data:image/jpeg;base64," + imageData;
     }
 
@@ -74,17 +80,24 @@ function cameraTakePicture() {
 function loadArticles() {
     let articles = JSON.parse(localStorage.getItem('articles'));
     for (let i = 0; i < articles.length; i++) {
+        let art = articles[i];
         let html = `<div id="${i}">`;
-        html += `<div><h4>${articles[i].title}</h4></div>`;
-        html += `<div><img src="${articles[i].img}" class="imgArticle" alt="Image of article"></div>`;
+        html += `<div><h4>${art.title}</h4></div>`;
+        html += `<div><img src="${art.img}" class="imgArticle" alt="Image of article"></div>`;
+        html += `<span class="toggle">></span>`;
+        html += `<div class="details"><p>${art.description}</p></div>`;
         html += `</div>`;
         document.getElementById('articles').innerHTML += html;
-        addEvent(i);
     }
+    addEvent(articles.length);
 }
 
-function addEvent(id) {
-    document.getElementById(id).onclick = () => {
-        alert('Article n° ' + id);
+function addEvent(lenght) {
+    for (let i = 0; i < lenght; i++) {
+        let e = document.getElementsByClassName('toggle')[i];
+        e.onclick = () => {
+            let detail = document.getElementsByClassName('details')[i];
+            detail.style.display !== 'block' ? detail.style.display = 'block' : detail.style.display = 'none'
+        }
     }
 }

@@ -115,3 +115,7 @@ h1 {
 #articles img {
     width: 100%;
 }
+
+.details {
+    display: none;
+}
