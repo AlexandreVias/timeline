@@ -103,7 +103,7 @@ function addEvent(lenght) {
     }
 }
 
-document.getElementById('add').onclick = () => addArticle();
+document.getElementById('add').onclick = () => addArticleJSON();
 
 function addArticleJSON() {
     let articles = JSON.parse(localStorage.getItem('articles'));
