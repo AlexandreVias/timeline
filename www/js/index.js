@@ -116,6 +116,10 @@ function addArticleJSON() {
     localStorage.setItem('articles', JSON.stringify(articles));
 }
 
+function addArticleDOM() {
+
+}
+
 var content = document.querySelector('#hamburger-content');
 var sidebarBody = document.querySelector('#hamburger-sidebar-body');
 var button = document.querySelector('#hamburger-button');
