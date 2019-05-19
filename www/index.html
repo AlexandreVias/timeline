@@ -8,7 +8,7 @@
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/hamburger.css">
-    <title>Hello World</title>
+    <title>Timeline</title>
 </head>
 <body>
 <!--#region HEADER-->
@@ -74,6 +74,14 @@
             </tr>
             <tr>
                 <td>
+                    <label for="cameraTakeVideo">Video</label>
+                </td>
+                <td>
+                    <button id="cameraTakeVideo">Take video</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <input type="submit" id="add" value="Ajouter">
                 </td>
             </tr>
@@ -81,9 +89,15 @@
         <div id="photoDiv">
             <img src="#" id="photo" alt="Photo">
         </div>
+        <div id="videoDiv">
+            <video id="video" controls width="250" src="#">
+                <source id="videoSource" type="video/mp4">
+            </video>
+        </div>
     </div>
     <div id="articles" class="grid-container">
     </div>
+    <button id="reset">Reset database</button>
 </div>
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
