@@ -24,7 +24,7 @@ let app = {
     onDeviceReady: function () {
         this.receivedEvent('deviceready');
         document.getElementById("cameraTakePicture").addEventListener("click", cameraTakePicture);
-        localStorage.setItem('articles', JSON.stringify([
+        /*localStorage.setItem('articles', JSON.stringify([
             {
                 title: 'Trop belle photo',
                 description: 'Une petite description.',
@@ -43,7 +43,7 @@ let app = {
                 date: '2016-08-21',
                 img: 'img/Notre_Dame.jpg'
             }
-        ]));
+        ]));*/
         loadArticles();
     },
 
@@ -111,20 +111,17 @@ function addArticleJSON() {
         title: document.getElementById('title').value,
         description: document.getElementById('description').value,
         date: document.getElementById('date').value,
-        img: document.getElementById('photo').value
+        img: document.getElementById('photo').src
     });
     localStorage.setItem('articles', JSON.stringify(articles));
+    location.reload()
 }
 
-function addArticleDOM() {
-
-}
-
-var content = document.querySelector('#hamburger-content');
-var sidebarBody = document.querySelector('#hamburger-sidebar-body');
-var button = document.querySelector('#hamburger-button');
-var overlay = document.querySelector('#hamburger-overlay');
-var activatedClass = 'hamburger-activated';
+const content = document.querySelector('#hamburger-content');
+const sidebarBody = document.querySelector('#hamburger-sidebar-body');
+const button = document.querySelector('#hamburger-button');
+const overlay = document.querySelector('#hamburger-overlay');
+const activatedClass = 'hamburger-activated';
 
 sidebarBody.innerHTML = content.innerHTML;
 
