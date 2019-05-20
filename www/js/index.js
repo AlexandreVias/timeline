@@ -18,12 +18,7 @@
 */
 
 let app = {
-    initialize: function () {
-        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-    },
-
     onDeviceReady: function () {
-        this.receivedEvent('deviceready');
         document.getElementById('cameraTakePicture').addEventListener('click', cameraTakePicture);
         document.getElementById('cameraTakeVideo').addEventListener('click', cameraTakeVideo);
         document.getElementById('addPosition').addEventListener('click', getPosition);
@@ -48,21 +43,10 @@ let app = {
             }
         ]));*/
         loadArticles();
-    },
-
-    receivedEvent: function (id) {
-        let parentElement = document.getElementById(id);
-        let listeningElement = parentElement.querySelector('.listening');
-        let receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
     }
 };
 
-app.initialize();
+app.onDeviceReady();
 
 function cameraTakePicture() {
     navigator.camera.getPicture(onSuccess, onFail, {
@@ -113,18 +97,26 @@ function loadArticles() {
     for (let i = 0; i < articles.length; i++) {
         let art = articles[i];
         let hasPosition = art.hasOwnProperty('position');
-        let html = `<div id="${i}">`;
+        let html = `<div id="${i}" class="toggle">`;
         html += `<div><h4>${art.title}</h4></div>`;
         if (art.hasOwnProperty('img'))
             html += `<div><img src="${art.img}" class="imgArticle" alt="Image of article"></div>`;
-        html += `<span class="toggle">></span>`;
+    <<<<<<<
+        HEAD
+        html += `<span>></span>`;
+    ======
+        =
+            html += `<span class="toggle">Details</span>`;
+    >>>>>>>
+        990
+        bff010fe9e5cc40cd67c9dd8ea4aac8f8f22a
         html += `<div class="details">`;
         html += `<p>Description: ${art.description}</p>`;
         html += `<p>Date: ${art.date}</p>`;
         if (art.hasOwnProperty('video'))
             html += `<video controls width="100%" src="${art.video.src}"><source type="${art.video.type}"></video>`;
         if (hasPosition)
-            html += `<div id="map${i}"></div>`;
+            html += `<div id="map${i}" class="map"></div>`;
         html += `</div></div>`;
         document.getElementById('articles').innerHTML += html;
         if (hasPosition)
@@ -134,12 +126,12 @@ function loadArticles() {
 }
 
 function addEvent(lenght) {
-  for (let i = 0; i < lenght; i++) {
-      document.getElementsByClassName('toggle')[i].onclick = () => {
-          let detail = document.getElementsByClassName('details')[i];
-          detail.style.display !== 'block' ? detail.style.display = 'block' : detail.style.display = 'none'
-      }
-  }
+    for (let i = 0; i < lenght; i++) {
+        document.getElementsByClassName('toggle')[i].onclick = () => {
+            let detail = document.getElementsByClassName('details')[i];
+            detail.style.display !== 'block' ? detail.style.display = 'block' : detail.style.display = 'none'
+        }
+    }
 }
 
 document.getElementById('add').onclick = () => addArticleJSON();
@@ -184,13 +176,12 @@ function addArticleJSON() {
 
 function addMap(lat, lng, i) {
     let map = new google.maps.Map(document.getElementById(`map${i}`), {
-        center: new google.maps.LatLng(0, 0),
-        zoom: 1,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        center: {lat: 0, lng: 0},
+        zoom: 1
     });
 
     let marker = new google.maps.Marker({
-        position: new google.maps.LatLng(lat, lng)
+        position: {lat: lat, lng: lng}
     });
 
     marker.setMap(map);
@@ -215,15 +206,15 @@ var showClass = 'show';
 button.addEventListener('click', function (e) {
     e.preventDefault();
 
-  console.log(this.parentNode);
-  this.parentNode.classList.add(activatedClass);
+    console.log(this.parentNode);
+    this.parentNode.classList.add(activatedClass);
 });
 
-buttonAfficheForm.addEventListener('click', function(e) {
-  //this.parentNode.classList.add(activatedClass);
-  let form = document.getElementById("new");
-  form.style.display = 'block';
-  document.getElementById("hamburger").classList.remove(activatedClass);
+buttonAfficheForm.addEventListener('click', function (e) {
+    //this.parentNode.classList.add(activatedClass);
+    let form = document.getElementById("new");
+    form.style.display = 'block';
+    document.getElementById("hamburger").classList.remove(activatedClass);
 
 });
 

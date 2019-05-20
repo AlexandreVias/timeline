@@ -131,6 +131,8 @@ li a, .button {
 
 #new {
   display: none;
+  background-color: rgb(187, 187, 187);
+  width: 248px;
 }
 
 header {
@@ -143,8 +145,9 @@ header {
 
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto auto;
-    padding: 10px;
+    grid-template-columns: 100%;
+    width: 150%;
+    margin-left: -25%
 }
 
 .grid-item {
@@ -156,21 +159,42 @@ header {
 #reset {
   margin-bottom: 6px;
   border: none;
-	padding:6px 0 6px 0;
-	border-radius:8px;
+	border-radius:4px;
 	background:#d34836;
-	font:bold 13px Arial;
+	font-size: 18px;
   color:#fff;
-  width: 100px;
+  width: 140px;
 }
 
-#label {
+.label {
   float: left;
 }
-#field {
+.field {
   float: center;
   margin-left: 6px;
 }
 .size {
   width: 160px;
+}
+
+#add{
+  text-align: center;
+}
+.button-form-add{
+  margin-top: 14px;
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #4CAF50;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.button-form{
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  border-radius: 2px;
+}
+.map {
+  height: 300px;
 }
