@@ -18,48 +18,6 @@
 */
 
 let app = {
-<<<<<<< HEAD
-  initialize: function () {
-      document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-  },
-
-  onDeviceReady: function () {
-      this.receivedEvent('deviceready');
-      document.getElementById("cameraTakePicture").addEventListener("click", cameraTakePicture);
-      /*localStorage.setItem('articles', JSON.stringify([
-          {
-              title: 'Trop belle photo',
-              description: 'Une petite description.',
-              date: '2013-10-21',
-              img: 'img/pexels-photo.jpg'
-          },
-          {
-              title: 'Je sais pas quoi mettre comme titre',
-              description: 'Une autre description.',
-              date: '2012-04-23',
-              img: 'img/beauty-bloom-blue-67636.jpg'
-          },
-          {
-              title: 'Un titre',
-              description: 'Blasphème.',
-              date: '2016-08-21',
-              img: 'img/Notre_Dame.jpg'
-          }
-      ]));*/
-      loadArticles();
-  },
-
-  receivedEvent: function (id) {
-      let parentElement = document.getElementById(id);
-      let listeningElement = parentElement.querySelector('.listening');
-      let receivedElement = parentElement.querySelector('.received');
-
-      listeningElement.setAttribute('style', 'display:none;');
-      receivedElement.setAttribute('style', 'display:block;');
-
-      console.log('Received Event: ' + id);
-  }
-=======
     initialize: function () {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
     },
@@ -101,7 +59,6 @@ let app = {
 
         console.log('Received Event: ' + id);
     }
->>>>>>> 557f6b26658cda81dd13671e6259d51e91439434
 };
 
 app.initialize();
