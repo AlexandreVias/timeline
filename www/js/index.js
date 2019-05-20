@@ -26,7 +26,7 @@ let app = {
         this.receivedEvent('deviceready');
         document.getElementById("cameraTakePicture").addEventListener("click", cameraTakePicture);
         document.getElementById("cameraTakeVideo").addEventListener("click", cameraTakeVideo);
-        /*localStorage.setItem('articles', JSON.stringify([
+        localStorage.setItem('articles', JSON.stringify([
             {
                 title: 'Trop belle photo',
                 description: 'Une petite description.',
@@ -45,7 +45,7 @@ let app = {
                 date: '2016-08-21',
                 img: 'img/Notre_Dame.jpg'
             }
-        ]));*/
+        ]));
         loadArticles();
     },
 
