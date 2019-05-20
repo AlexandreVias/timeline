@@ -94,22 +94,6 @@ function cameraTakeVideo() {
 }
 
 function loadArticles() {
-<<<<<<< HEAD
-  let articles = JSON.parse(localStorage.getItem('articles'));
-  for (let i = 0; i < articles.length; i++) {
-      let art = articles[i];
-      let html = `<div id="${i}">`;
-      html += `<div><h4>${art.title}</h4></div>`;
-      html += `<div><img src="${art.img}" class="imgArticle" alt="Image of article"></div>`;
-      html += `<span class="toggle">></span>`;
-      html += `<div class="details">`;
-      html += `<p>Description: ${art.description}</p>`;
-      html += `<p>Date: ${art.date}</p>`;
-      html += `</div></div>`;
-      document.getElementById('articles').innerHTML += html;
-  }
-  addEvent(articles.length);
-=======
     let articles = JSON.parse(localStorage.getItem('articles'));
     for (let i = 0; i < articles.length; i++) {
         let art = articles[i];
@@ -127,7 +111,6 @@ function loadArticles() {
         document.getElementById('articles').innerHTML += html;
     }
     addEvent(articles.length);
->>>>>>> 557f6b26658cda81dd13671e6259d51e91439434
 }
 
 function addEvent(lenght) {
@@ -143,17 +126,6 @@ document.getElementById('add').onclick = () => addArticleJSON();
 document.getElementById('reset').onclick = () => reset();
 
 function addArticleJSON() {
-<<<<<<< HEAD
-  let articles = JSON.parse(localStorage.getItem('articles'));
-  articles.push({
-      title: document.getElementById('title').value,
-      description: document.getElementById('description').value,
-      date: document.getElementById('date').value,
-      img: document.getElementById('photo').src
-  });
-  localStorage.setItem('articles', JSON.stringify(articles));
-  location.reload()
-=======
     const title = document.getElementById('title').value;
     const date = document.getElementById('date').value;
     if (title === '') {
@@ -182,7 +154,6 @@ function addArticleJSON() {
     articles.push(art);
     localStorage.setItem('articles', JSON.stringify(articles));
     location.reload()
->>>>>>> 557f6b26658cda81dd13671e6259d51e91439434
 }
 
 function reset() {
@@ -199,13 +170,8 @@ var overlay = document.querySelector('#hamburger-overlay');
 var activatedClass = 'hamburger-activated';
 var showClass = 'show';
 
-<<<<<<< HEAD
-button.addEventListener('click', function(e) {
-  e.preventDefault();
-=======
 button.addEventListener('click', function (e) {
     e.preventDefault();
->>>>>>> 557f6b26658cda81dd13671e6259d51e91439434
 
   console.log(this.parentNode);
   this.parentNode.classList.add(activatedClass);
@@ -219,22 +185,6 @@ buttonAfficheForm.addEventListener('click', function(e) {
 
 });
 
-<<<<<<< HEAD
-button.addEventListener('keydown', function(e) {
-  if (this.parentNode.classList.contains(activatedClass))
-  {
-      if (e.repeat === false && e.which === 27)
-          this.parentNode.classList.remove(activatedClass);
-  }
-});
-
-
-overlay.addEventListener('click', function(e) {
-  e.preventDefault();
-
-  this.parentNode.classList.remove(activatedClass);
-});
-=======
 button.addEventListener('keydown', function (e) {
     if (this.parentNode.classList.contains(activatedClass)) {
         if (e.repeat === false && e.which === 27)
@@ -248,4 +198,3 @@ overlay.addEventListener('click', function (e) {
 
     this.parentNode.classList.remove(activatedClass);
 });
->>>>>>> 557f6b26658cda81dd13671e6259d51e91439434
