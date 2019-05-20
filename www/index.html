@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Security-Policy"
-          content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+  <!--<meta http-equiv="Content-Security-Policy"
+          content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
@@ -18,7 +18,7 @@
             <nav>
                 <ul>
                     <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Ajout Article</a></li>
+                    <li><a href="#" id="addButton">Ajout Article</a></li>
                     <li><a href="#">À propos</a></li>
                 </ul>
             </nav>
@@ -82,10 +82,22 @@
             </tr>
             <tr>
                 <td>
+                    <label for="addPosition">Position</label>
+                </td>
+                <td>
+                    <button id="addPosition">Add curent position</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
                     <input type="submit" id="add" value="Ajouter">
                 </td>
             </tr>
         </table>
+        <div id="positionDiv">
+            <p>Position<br>
+                Lat: <span id="lat"></span> ; Lng: <span id="lng"></span></p>
+        </div>
         <div id="photoDiv">
             <img src="#" id="photo" alt="Photo">
         </div>
@@ -99,6 +111,7 @@
     </div>
     <button id="reset">Reset database</button>
 </div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAqMG_LqPk_sDfm7Jjsg7KQRBtsFRZ1NA"></script>
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 </body>
