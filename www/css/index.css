@@ -129,6 +129,10 @@ li a, .button {
     background-color: #EEE;
 }
 
+#new {
+  display: none;
+}
+
 header {
     text-transform: uppercase;
     background-color: #FFF;
