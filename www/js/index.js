@@ -18,12 +18,9 @@
 */
 
 let app = {
-    initialize: function () {
-        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-    },
+
 
     onDeviceReady: function () {
-        this.receivedEvent('deviceready');
         document.getElementById('cameraTakePicture').addEventListener('click', cameraTakePicture);
         document.getElementById('cameraTakeVideo').addEventListener('click', cameraTakeVideo);
         document.getElementById('addPosition').addEventListener('click', getPosition);
@@ -49,20 +46,9 @@ let app = {
         ]));*/
         loadArticles();
     },
-
-    receivedEvent: function (id) {
-        let parentElement = document.getElementById(id);
-        let listeningElement = parentElement.querySelector('.listening');
-        let receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
-    }
 };
 
-app.initialize();
+app.onDeviceReady();
 
 function cameraTakePicture() {
     navigator.camera.getPicture(onSuccess, onFail, {
@@ -117,14 +103,14 @@ function loadArticles() {
         html += `<div><h4>${art.title}</h4></div>`;
         if (art.hasOwnProperty('img'))
             html += `<div><img src="${art.img}" class="imgArticle" alt="Image of article"></div>`;
-        html += `<span class="toggle">></span>`;
+        html += `<span class="toggle">Details</span>`;
         html += `<div class="details">`;
         html += `<p>Description: ${art.description}</p>`;
         html += `<p>Date: ${art.date}</p>`;
         if (art.hasOwnProperty('video'))
             html += `<video controls width="100%" src="${art.video.src}"><source type="${art.video.type}"></video>`;
         if (hasPosition)
-            html += `<div id="map${i}"></div>`;
+            html += `<div id="map${i}" class="map"></div>`;
         html += `</div></div>`;
         document.getElementById('articles').innerHTML += html;
         if (hasPosition)

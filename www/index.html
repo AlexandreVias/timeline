@@ -34,40 +34,34 @@
 <!-- END HEADER -->
 <div class="app">
     <h1>Timeline</h1>
-    <div id="deviceready" class="blink">
-        <p class="event listening">Connecting to Device</p>
-        <p class="event received">Device is Ready</p>
-    </div>
     <div id="new">
         <table>
             <tr>
-                <td id="label"><label for="title">Title</label></td>
-                <td id="field"><input type="text" id="title" class="size"></td>
+                <td class="label"><label for="title">Title</label></td>
+                <td class="field"><input type="text" id="title" class="size"></td>
             </tr>
             <tr>
-                <td id="label"><label for="description">Description</label></td>
-                <td id="field"><input type="text" id="description" class="size"></td>
+                <td class="label"><label for="description">Description</label></td>
+                <td class="field"><input type="text" id="description" class="size"></td>
             </tr>
             <tr>
-                <td id="label"><label for="date">Date</label></td>
-                <td id="field"><input type="date" id="date" class="size"></td>
+                <td class="label"><label for="date">Date</label></td>
+                <td class="field"><input type="date" id="date" class="size"></td>
             </tr>
             <tr>
-                <td id="label"><label for="cameraTakePicture">Photo</label></td>
-                <td id="button-form"><button id="cameraTakePicture">Take photo</button></td>
+                <td class="label"><label for="cameraTakePicture">Photo</label></td>
+                <td><button id="cameraTakePicture" class="button-form">Take photo</button></td>
             </tr>
             <tr>
-                <td id="label"><label for="cameraTakeVideo">Video</label></td>
-                <td id="button-form"><button id="cameraTakeVideo">Take video</button></td>
+                <td class="label"><label for="cameraTakeVideo">Video</label></td>
+                <td><button id="cameraTakeVideo" class="button-form">Take video</button></td>
             </tr>
             <tr>
-                <td><label for="addPosition">Position</label></td>
-                <td><button id="addPosition">Add curent position</button></td>
-            </tr>
-            <tr>
-                <td id="button-form"><input type="submit" id="add" value="Ajouter"></td>
+                <td class="label"><label for="addPosition">Position</label></td>
+                <td><button id="addPosition" class="button-form">Add curent position</button></td>
             </tr>
         </table>
+        <input type="submit" id="add" class="button-form-add" value="Add">
         <div id="positionDiv">
             <p>Position<br>
                 Lat: <span id="lat"></span> ; Lng: <span id="lng"></span></p>
