@@ -24,9 +24,10 @@ let app = {
 
     onDeviceReady: function () {
         this.receivedEvent('deviceready');
-        document.getElementById("cameraTakePicture").addEventListener("click", cameraTakePicture);
-        document.getElementById("cameraTakeVideo").addEventListener("click", cameraTakeVideo);
-        localStorage.setItem('articles', JSON.stringify([
+        document.getElementById('cameraTakePicture').addEventListener('click', cameraTakePicture);
+        document.getElementById('cameraTakeVideo').addEventListener('click', cameraTakeVideo);
+        document.getElementById('addPosition').addEventListener('click', getPosition);
+        /*localStorage.setItem('articles', JSON.stringify([
             {
                 title: 'Trop belle photo',
                 description: 'Une petite description.',
@@ -45,7 +46,7 @@ let app = {
                 date: '2016-08-21',
                 img: 'img/Notre_Dame.jpg'
             }
-        ]));
+        ]));*/
         loadArticles();
     },
 
@@ -88,8 +89,22 @@ function cameraTakeVideo() {
         document.getElementById('videoDiv').style.display = 'block';
     }
 
-    function onFail(message) {
-        alert('Failed because: ' + message);
+    function onFail(e) {
+        alert('Failed because: ' + e);
+    }
+}
+
+function getPosition() {
+    navigator.geolocation.getCurrentPosition(onSuccess, onFail);
+
+    function onSuccess(p) {
+        document.getElementById('positionDiv').style.display = 'block';
+        document.getElementById('lat').innerText = p.coords.latitude.toString();
+        document.getElementById('lng').innerText = p.coords.latitude.toString();
+    }
+
+    function onFail(e) {
+        alert('Failed because: ' + e);
     }
 }
 
@@ -97,6 +112,7 @@ function loadArticles() {
     let articles = JSON.parse(localStorage.getItem('articles'));
     for (let i = 0; i < articles.length; i++) {
         let art = articles[i];
+        let hasPosition = art.hasOwnProperty('position');
         let html = `<div id="${i}">`;
         html += `<div><h4>${art.title}</h4></div>`;
         if (art.hasOwnProperty('img'))
@@ -107,8 +123,12 @@ function loadArticles() {
         html += `<p>Date: ${art.date}</p>`;
         if (art.hasOwnProperty('video'))
             html += `<video controls width="100%" src="${art.video.src}"><source type="${art.video.type}"></video>`;
+        if (hasPosition)
+            html += `<div id="map${i}"></div>`;
         html += `</div></div>`;
         document.getElementById('articles').innerHTML += html;
+        if (hasPosition)
+            addMap(art.position.lat, art.position.lng, i)
     }
     addEvent(articles.length);
 }
@@ -139,6 +159,7 @@ function addArticleJSON() {
     let articles = JSON.parse(localStorage.getItem('articles'));
     const hasPhoto = document.getElementById('photoDiv').style.display === 'block';
     const hasVideo = document.getElementById('videoDiv').style.display === 'block';
+    const hasPosition = document.getElementById('positionDiv').style.display === 'block';
     let art = {
         title: title,
         description: document.getElementById('description').value,
@@ -151,9 +172,30 @@ function addArticleJSON() {
             src: document.getElementById('video').src,
             type: document.getElementById('videoSource').type
         };
+    if (hasPosition)
+        art.position = {
+            lat: parseFloat(document.getElementById('lat').innerText),
+            lng: parseFloat(document.getElementById('lng').innerText)
+        };
     articles.push(art);
     localStorage.setItem('articles', JSON.stringify(articles));
     location.reload()
+}
+
+function addMap(lat, lng, i) {
+    let map = new google.maps.Map(document.getElementById(`map${i}`), {
+        center: new google.maps.LatLng(0, 0),
+        zoom: 1,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    let marker = new google.maps.Marker({
+        position: new google.maps.LatLng(lat, lng)
+    });
+
+    marker.setMap(map);
+    map.setZoom(15);
+    map.setCenter(marker.getPosition());
 }
 
 function reset() {

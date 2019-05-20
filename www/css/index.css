@@ -87,6 +87,7 @@ h1 {
 }
 
 #articles > div {
+    width: 100%;
     border: 1px solid black;
     margin: 10px 0 10px 0
 }
@@ -95,7 +96,7 @@ img {
     width: 100%;
 }
 
-.details, #photoDiv, #videoDiv {
+.details, #photoDiv, #videoDiv, #positionDiv {
     display: none;
 }
 
