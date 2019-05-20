@@ -101,22 +101,7 @@ function loadArticles() {
         html += `<div><h4>${art.title}</h4></div>`;
         if (art.hasOwnProperty('img'))
             html += `<div><img src="${art.img}" class="imgArticle" alt="Image of article"></div>`;
-    <<<<<<<
-        HEAD
-        << < < < < <
-        HEAD
-        html += `<span>></span>`;
-    ======
-        =
-            html += `<span class="toggle">Details</span>`;
-    >>>>>>>
-        990
-        bff010fe9e5cc40cd67c9dd8ea4aac8f8f22a
-        === === =
-            html += `<span class="toggle">Details</span>`;
-    >>>>>>>
-        990
-        bff010fe9e5cc40cd67c9dd8ea4aac8f8f22a
+        html += `<span class="toggle">Details</span>`;
         html += `<div class="details">`;
         html += `<p>Description: ${art.description}</p>`;
         html += `<p>Date: ${art.date}</p>`;
