@@ -96,7 +96,7 @@ img {
     width: 100%;
 }
 
-.details, #photoDiv, #new {
+.details, #photoDiv {
     display: none;
 }
 
@@ -125,6 +125,10 @@ li a, .button {
 }
 .button-sign-up {
   background-color: #EEE;
+}
+
+#new {
+  display: none;
 }
 
 header {

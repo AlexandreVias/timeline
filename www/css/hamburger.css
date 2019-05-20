@@ -41,6 +41,7 @@
 }
 #hamburger-sidebar li {
   display: block;
+  margin-top: 50px;
 }
 #hamburger-sidebar-header {
   background: url(../img/sidebar-header.png) center;
@@ -72,6 +73,13 @@
   background-image: url(../img/icons/qna.svg);
 }
 
+/* #hamburger-sidebar-body li .button {
+  cursor: pointer;
+  background: none;
+  border: none;
+
+} */
+
 @media screen and (max-width: 10000px) {
   #hamburger-content {
       display: none;
@@ -83,6 +91,10 @@
 
   .hamburger-activated #hamburger-sidebar {
       transform: translateX(0);
+  }
+
+  .show {
+    display: block;
   }
 
 }
