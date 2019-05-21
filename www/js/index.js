@@ -203,7 +203,6 @@ button.addEventListener('click', function (e) {
 });
 
 buttonAfficheForm.addEventListener('click', function (e) {
-    //this.parentNode.classList.add(activatedClass);
     let form = document.getElementById("new");
     form.style.display = 'block';
     document.getElementById("hamburger").classList.remove(activatedClass);

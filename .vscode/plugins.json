@@ -1,1 +1,1 @@
-{"plugins":["cordova-plugin-whitelist","cordova-plugin-battery-status","cordova-plugin-camera","cordova-plugin-navigationbar"]}
+{"plugins":["cordova-plugin-whitelist","cordova-plugin-battery-status","cordova-plugin-camera","cordova-plugin-navigationbar","cordova-plugin-media-capture","cordova-plugin-file","cordova-plugin-geolocation","cordova-plugin-splashscreen"]}
