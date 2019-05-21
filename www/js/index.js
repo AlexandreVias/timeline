@@ -22,26 +22,6 @@ let app = {
         document.getElementById('cameraTakePicture').addEventListener('click', cameraTakePicture);
         document.getElementById('cameraTakeVideo').addEventListener('click', cameraTakeVideo);
         document.getElementById('addPosition').addEventListener('click', getPosition);
-        /*localStorage.setItem('articles', JSON.stringify([
-            {
-                title: 'Trop belle photo',
-                description: 'Une petite description.',
-                date: '2013-10-21',
-                img: 'img/pexels-photo.jpg'
-            },
-            {
-                title: 'Je sais pas quoi mettre comme titre',
-                description: 'Une autre description.',
-                date: '2012-04-23',
-                img: 'img/beauty-bloom-blue-67636.jpg'
-            },
-            {
-                title: 'Un titre',
-                description: 'Blasphème.',
-                date: '2016-08-21',
-                img: 'img/Notre_Dame.jpg'
-            }
-        ]));*/
         loadArticles();
     }
 };
@@ -93,6 +73,10 @@ function getPosition() {
 }
 
 function loadArticles() {
+    if (localStorage.getItem('articles') == null) {
+        localStorage.setItem('articles', JSON.stringify([]));
+        return;
+    }
     let articles = JSON.parse(localStorage.getItem('articles'));
     for (let i = 0; i < articles.length; i++) {
         let art = articles[i];
@@ -101,7 +85,7 @@ function loadArticles() {
         html += `<div><h4>${art.title}</h4></div>`;
         if (art.hasOwnProperty('img'))
             html += `<div><img src="${art.img}" class="imgArticle" alt="Image of article"></div>`;
-        html += `<span class="toggle">Details</span>`;
+        html += `<span>Details</span>`;
         html += `<div class="details">`;
         html += `<p>Description: ${art.description}</p>`;
         html += `<p>Date: ${art.date}</p>`;
@@ -171,11 +155,9 @@ function addMap(lat, lng, i) {
         center: {lat: 0, lng: 0},
         zoom: 1
     });
-
     let marker = new google.maps.Marker({
         position: {lat: lat, lng: lng}
     });
-
     marker.setMap(map);
     map.setZoom(15);
     map.setCenter(marker.getPosition());
@@ -186,23 +168,21 @@ function reset() {
     location.reload()
 }
 
-var content = document.querySelector('#hamburger-content');
-var sidebarBody = document.querySelector('#hamburger-sidebar-body');
+const
+    content = document.querySelector('#hamburger-content'),
+    sidebarBody = document.querySelector('#hamburger-sidebar-body'),
+    button = document.querySelector('#hamburger-button'),
+    buttonAfficheForm = document.querySelector('#hamburger-sidebar-body > nav ul li #add-button'),
+    overlay = document.querySelector('#hamburger-overlay'),
+    activatedClass = 'hamburger-activated';
 sidebarBody.innerHTML = content.innerHTML;
-var button = document.querySelector('#hamburger-button');
-var buttonAfficheForm = document.querySelector('#hamburger-sidebar-body > nav ul li #add-button');
-var overlay = document.querySelector('#hamburger-overlay');
-var activatedClass = 'hamburger-activated';
-var showClass = 'show';
 
 button.addEventListener('click', function (e) {
     e.preventDefault();
-
-    console.log(this.parentNode);
     this.parentNode.classList.add(activatedClass);
 });
 
-buttonAfficheForm.addEventListener('click', function (e) {
+buttonAfficheForm.addEventListener('click', function () {
     let form = document.getElementById("new");
     form.style.display = 'block';
     document.getElementById("hamburger").classList.remove(activatedClass);
@@ -215,7 +195,6 @@ button.addEventListener('keydown', function (e) {
             this.parentNode.classList.remove(activatedClass);
     }
 });
-
 
 overlay.addEventListener('click', function (e) {
     e.preventDefault();
