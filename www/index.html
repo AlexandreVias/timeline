@@ -1,27 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="Content-Security-Policy"
-          content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <!--<meta http-equiv="Content-Security-Policy"
+            content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">-->
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
     <link rel="stylesheet" type="text/css" href="css/index.css">
-    <title>Hello World</title>
+    <link rel="stylesheet" type="text/css" href="css/hamburger.css">
+    <title>Timeline</title>
 </head>
 <body>
+<!-- BEGIN HEADER -->
+<header>
+    <div id="hamburger">
+        <div id="hamburger-content">
+            <nav>
+                <ul>
+                    <li><a href="#" id="home-button">Home</a></li>
+                    <li><a href="#" id="add-button">Add article</a></li>
+                  <li><a href="#" id="qna-button">About</a></li>
+                </ul>
+            </nav>
+        </div>
+        <button id="hamburger-button">&#9776;</button>
+        <div id="hamburger-sidebar">
+            <div id="hamburger-sidebar-header"></div>
+            <div id="hamburger-sidebar-body"></div>
+        </div>
+        <div id="hamburger-overlay"></div>
+    </div>
+</header>
+<!-- END HEADER -->
 <div class="app">
-    <h1>Apache Cordova</h1>
-    <div id="deviceready" class="blink">
-        <p class="event listening">Connecting to Device</p>
-        <p class="event received">Device is Ready</p>
+    <h1>Timeline</h1>
+    <div id="new">
+        <table>
+            <tr>
+                <td class="label"><label for="title" class="labelSize">Title</label></td>
+                <td class="field"><input type="text" id="title" class="size"></td>
+            </tr>
+            <tr>
+                <td class="label"><label for="description" class="labelSize">Description</label></td>
+                <td class="field"><input type="text" id="description" class="size"></td>
+            </tr>
+            <tr>
+                <td class="label"><label for="date" class="labelSize">Date</label></td>
+                <td class="field"><input type="date" id="date" class="size"></td>
+            </tr>
+            <tr>
+                <td class="label"><label for="cameraTakePicture" class="labelSize">Photo</label></td>
+                <td><button id="cameraTakePicture" class="button-form">Take photo</button></td>
+            </tr>
+            <tr>
+                <td class="label"><label for="cameraTakeVideo" class="labelSize">Video</label></td>
+                <td><button id="cameraTakeVideo" class="button-form">Take video</button></td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td class="label"><label for="addPosition" class="labelSize">Position</label></td>
+                <td><button id="addPosition" class="button-form">Add curent position</button></td>
+            </tr>
+        </table>
+        <div id="positionDiv">
+          <b><h3><p>Position<br>
+              Lat: <span id="lat"></span> ; Lng: <span id="lng"></span></p></h3></b>
+      </div>
+      <div id="photoDiv">
+          <img src="#" id="photo" alt="Photo">
+      </div>
+      <div id="videoDiv">
+          <video id="video" controls width="250" src="#">
+              <source id="videoSource" type="video/mp4">
+          </video>
+      </div>
+        <input type="submit" id="add" class="button-form-add" value="Add">
     </div>
-    <div id="articles">
-
+    <div id="articles" class="grid-container">
     </div>
-    <button id="cameraTakePicture">TAKE PICTURE</button>
-    <img id="myImage" alt="Photo">
+    <button id="reset">Reset database</button>
 </div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAqMG_LqPk_sDfm7Jjsg7KQRBtsFRZ1NA"></script>
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
 </body>
