@@ -132,7 +132,8 @@ li a, .button {
 #new {
   display: none;
   background-color: rgb(187, 187, 187);
-  width: 248px;
+  width: 150%;
+  margin-left: -25%;
 }
 
 header {
@@ -147,7 +148,7 @@ header {
     display: grid;
     grid-template-columns: 100%;
     width: 150%;
-    margin-left: -25%
+    margin-left: -25%;
 }
 
 .grid-item {
@@ -157,13 +158,15 @@ header {
 }
 
 #reset {
-  margin-bottom: 6px;
+  margin-bottom: 5%;
   border: none;
 	border-radius:4px;
 	background:#d34836;
-	font-size: 18px;
+	font-size: 20px;
   color:#fff;
-  width: 140px;
+  width: 150%;
+  margin-left: -25%;
+  margin-top: 15%;
 }
 
 .label {
@@ -174,11 +177,15 @@ header {
   margin-left: 6px;
 }
 .size {
-  width: 160px;
+  width: 98%;
+  height: 22px;
+  margin-left: 5%;
 }
 
 #add{
   text-align: center;
+  width: 80%;
+  font-size: 20px;
 }
 .button-form-add{
   margin-top: 14px;
@@ -194,7 +201,17 @@ header {
   color: white;
   border: none;
   border-radius: 2px;
+  width: 100%;
+  font-size: 18px;
+  margin-left: 5%;
+  height: 22px;
 }
 .map {
   height: 300px;
+}
+.labelSize {
+  font-size: 20px;
+}
+.labelSize2 {
+  font-size: 20px;
 }

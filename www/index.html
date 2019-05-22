@@ -37,43 +37,44 @@
     <div id="new">
         <table>
             <tr>
-                <td class="label"><label for="title">Title</label></td>
+                <td class="label"><label for="title" class="labelSize">Title</label></td>
                 <td class="field"><input type="text" id="title" class="size"></td>
             </tr>
             <tr>
-                <td class="label"><label for="description">Description</label></td>
+                <td class="label"><label for="description" class="labelSize">Description</label></td>
                 <td class="field"><input type="text" id="description" class="size"></td>
             </tr>
             <tr>
-                <td class="label"><label for="date">Date</label></td>
+                <td class="label"><label for="date" class="labelSize">Date</label></td>
                 <td class="field"><input type="date" id="date" class="size"></td>
             </tr>
             <tr>
-                <td class="label"><label for="cameraTakePicture">Photo</label></td>
+                <td class="label"><label for="cameraTakePicture" class="labelSize">Photo</label></td>
                 <td><button id="cameraTakePicture" class="button-form">Take photo</button></td>
             </tr>
             <tr>
-                <td class="label"><label for="cameraTakeVideo">Video</label></td>
+                <td class="label"><label for="cameraTakeVideo" class="labelSize">Video</label></td>
                 <td><button id="cameraTakeVideo" class="button-form">Take video</button></td>
             </tr>
+            <tr></tr>
             <tr>
-                <td class="label"><label for="addPosition">Position</label></td>
+                <td class="label"><label for="addPosition" class="labelSize">Position</label></td>
                 <td><button id="addPosition" class="button-form">Add curent position</button></td>
             </tr>
         </table>
-        <input type="submit" id="add" class="button-form-add" value="Add">
         <div id="positionDiv">
-            <p>Position<br>
-                Lat: <span id="lat"></span> ; Lng: <span id="lng"></span></p>
-        </div>
-        <div id="photoDiv">
-            <img src="#" id="photo" alt="Photo">
-        </div>
-        <div id="videoDiv">
-            <video id="video" controls width="250" src="#">
-                <source id="videoSource" type="video/mp4">
-            </video>
-        </div>
+          <b><h3><p>Position<br>
+              Lat: <span id="lat"></span> ; Lng: <span id="lng"></span></p></h3></b>
+      </div>
+      <div id="photoDiv">
+          <img src="#" id="photo" alt="Photo">
+      </div>
+      <div id="videoDiv">
+          <video id="video" controls width="250" src="#">
+              <source id="videoSource" type="video/mp4">
+          </video>
+      </div>
+        <input type="submit" id="add" class="button-form-add" value="Add">
     </div>
     <div id="articles" class="grid-container">
     </div>

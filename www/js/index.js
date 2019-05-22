@@ -170,12 +170,13 @@ function reset() {
 
 const
     content = document.querySelector('#hamburger-content'),
-    sidebarBody = document.querySelector('#hamburger-sidebar-body'),
+    sidebarBody = document.querySelector('#hamburger-sidebar-body');
+    sidebarBody.innerHTML = content.innerHTML;
+const
     button = document.querySelector('#hamburger-button'),
     buttonAfficheForm = document.querySelector('#hamburger-sidebar-body > nav ul li #add-button'),
     overlay = document.querySelector('#hamburger-overlay'),
     activatedClass = 'hamburger-activated';
-sidebarBody.innerHTML = content.innerHTML;
 
 button.addEventListener('click', function (e) {
     e.preventDefault();
