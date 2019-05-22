@@ -145,7 +145,7 @@ function addArticleJSON() {
             lat: parseFloat(document.getElementById('lat').innerText),
             lng: parseFloat(document.getElementById('lng').innerText)
         };
-    articles.push(art);
+    articles.unshift(art);
     localStorage.setItem('articles', JSON.stringify(articles));
     location.reload()
 }
@@ -171,7 +171,7 @@ function reset() {
 const
     content = document.querySelector('#hamburger-content'),
     sidebarBody = document.querySelector('#hamburger-sidebar-body');
-    sidebarBody.innerHTML = content.innerHTML;
+sidebarBody.innerHTML = content.innerHTML;
 const
     button = document.querySelector('#hamburger-button'),
     buttonAfficheForm = document.querySelector('#hamburger-sidebar-body > nav ul li #add-button'),
